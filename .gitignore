@@ -1,0 +1,3 @@
+.env
+models/mistral-7b-instruct-v0.1.Q4_K_M.gguf
+__pycache__/local_llm.cpython-312.pyc

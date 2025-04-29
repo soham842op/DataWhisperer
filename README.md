@@ -10,3 +10,88 @@ This project builds an offline, GPU-accelerated AI agent that uses [Mistral 7B](
 
 ## 🗂️ Folder Structure
 
+📁 DataWhisperer/  ├── sql_agent.py # Main loop: ask questions to Mistral  <br>
+                    ├── local_llm.py # LangChain-compatible wrapper for Mistral <br>
+                    ├── setup_db.py # Creates sample sales.db SQLite database <br>
+                    ├── sales.db # SQLite file with sample data <br>
+                    ├── .env.example # Example token/env template <br>
+                    ├── requirements.txt # Python dependencies <br>
+                    ├── .gitignore # Prevents model files & secrets from uploading <br> 
+                    └── models/ # Contains GGUF model (NOT included in repo) <br>
+                    └── mistral-7b-instruct-v0.1.Q4_K_M.gguf <br>
+
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/datawhisperer.git
+cd datawhisperer
+```
+
+### 2. Create virtual environment (optional but recommended)
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+⚠️ Note: GPU support via llama-cpp-python requires CUDA 12.1+. For prebuilt wheels:
+```bash
+pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir --prefer-binary --extra-index-url https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu121/
+```
+### 4. Download the Mistral 7B model (GGUF format)
+Download from: TheBloke/Mistral-7B-Instruct-v0.1-GGUF
+Place it here:
+```bash
+models/mistral-7b-instruct-v0.1.Q4_K_M.gguf
+```
+### 5. Create the SQLite database
+```bash
+python setup_db.py
+```
+
+🧠 Usage
+```bash
+python sql_agent.py
+```
+
+You’ll be prompted to ask questions:
+
+❓ "How many laptops were sold?"
+❓ "Which product had the highest revenue?"
+❓ "Total revenue for tablets sold after March?"
+
+Your local agent will:
+
+* 🧠 Use Mistral 7B to generate SQL
+* 🔍 Query the SQLite database
+* 💬 Return the result
+
+🔐 Environment File
+Create a .env file (or rename .env.example) if you want to test with Hugging Face or OpenAI models later.
+```bash
+HUGGINGFACEHUB_API_TOKEN=your_token_here
+```
+🚫 .gitignore
+```bash
+.env
+models/
+*.gguf
+__pycache__/
+```
+📦 Dependencies
+```bash 
+langchain
+langchain-community
+langchain-experimental
+llama-cpp-python
+python-dotenv
+sqlite3
+```

@@ -1,6 +1,6 @@
 # 🧠 DataWhisperer: Local SQL-Powered AI Agent
 
-This project builds an offline, GPU-accelerated AI agent that uses [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) to answer natural language questions about structured data using SQL.
+This project builds an offline, GPU-accelerated AI agent that uses [CodeLLama](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) to answer natural language questions about structured data using SQL.
 
 ## 🚀 Features
 - Uses `llama-cpp-python` to run CodeLlama locally (no OpenAI or cloud needed)
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ```bash
 pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir --prefer-binary --extra-index-url https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu121/
 ```
-### 4. Download the Mistral 7B model (GGUF format)
+### 4. Download the CodeLLama model (GGUF format)
 Download from: TheBloke/codellama-7b-instruct.Q4_K_M.gguf
 Place it here:
 ```bash
@@ -70,7 +70,7 @@ You’ll be prompted to ask questions:
 
 Your local agent will:
 
-* 🧠 Use Mistral 7B to generate SQL
+* 🧠 Use CodeLLama to generate SQL
 * 🔍 Query the SQLite database
 * 💬 Return the result
 

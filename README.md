@@ -1,6 +1,6 @@
 # 🧠 DataWhisperer: Local SQL-Powered AI Agent
 
-This project builds an offline, GPU-accelerated AI agent that uses [CodeLLama](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) to answer natural language questions about structured data using SQL.
+This project builds an offline, GPU-accelerated AI agent that uses [CodeLLama](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF) to answer natural language questions about structured data using SQL.
 
 ## 🚀 Features
 - Uses `llama-cpp-python` to run CodeLlama locally (no OpenAI or cloud needed)

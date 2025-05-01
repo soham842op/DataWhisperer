@@ -1,3 +1,6 @@
 .env
 models/mistral-7b-instruct-v0.1.Q4_K_M.gguf
 __pycache__/local_llm.cpython-312.pyc
+__pycache__/patched_chain.cpython-312.pyc
+__pycache__/sql_agent.cpython-312.pyc
+models/codellama-7b-instruct.Q4_K_M.gguf

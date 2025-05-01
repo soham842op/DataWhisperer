@@ -3,14 +3,14 @@
 This project builds an offline, GPU-accelerated AI agent that uses [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) to answer natural language questions about structured data using SQL.
 
 ## 🚀 Features
-- Uses `llama-cpp-python` to run Mistral 7B locally (no OpenAI or cloud needed)
+- Uses `llama-cpp-python` to run CodeLlama locally (no OpenAI or cloud needed)
 - LangChain `SQLDatabaseChain` to turn natural language → SQL queries
 - Fully works offline after model download
 - Fast performance using GPU (RTX 4070 or higher recommended)
 
 ## 🗂️ Folder Structure
 
-📁 DataWhisperer/  ├── sql_agent.py # Main loop: ask questions to Mistral  <br>
+📁 DataWhisperer/  ├── sql_agent.py # Main loop: ask questions to CodeLlama  <br>
                     ├── local_llm.py # LangChain-compatible wrapper for Mistral <br>
                     ├── setup_db.py # Creates sample sales.db SQLite database <br>
                     ├── sales.db # SQLite file with sample data <br>
@@ -18,7 +18,7 @@ This project builds an offline, GPU-accelerated AI agent that uses [Mistral 7B](
                     ├── requirements.txt # Python dependencies <br>
                     ├── .gitignore # Prevents model files & secrets from uploading <br> 
                     └── models/ # Contains GGUF model (NOT included in repo) <br>
-                    └── mistral-7b-instruct-v0.1.Q4_K_M.gguf <br>
+                    └── codellama-7b-instruct.Q4_K_M.gguf <br>
 
 
 ---
@@ -47,19 +47,19 @@ pip install -r requirements.txt
 pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir --prefer-binary --extra-index-url https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu121/
 ```
 ### 4. Download the Mistral 7B model (GGUF format)
-Download from: TheBloke/Mistral-7B-Instruct-v0.1-GGUF
+Download from: TheBloke/codellama-7b-instruct.Q4_K_M.gguf
 Place it here:
 ```bash
-models/mistral-7b-instruct-v0.1.Q4_K_M.gguf
+models/codellama-7b-instruct.Q4_K_M.gguf
 ```
 ### 5. Create the SQLite database
 ```bash
 python setup_db.py
 ```
 
-🧠 Usage
+🚀 Launch the App
 ```bash
-python sql_agent.py
+streamlit run app.py
 ```
 
 You’ll be prompted to ask questions:
@@ -88,10 +88,12 @@ __pycache__/
 ```
 📦 Dependencies
 ```bash 
+streamlit
 langchain
 langchain-community
 langchain-experimental
 llama-cpp-python
 python-dotenv
 sqlite3
+pandas
 ```

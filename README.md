@@ -10,15 +10,17 @@ This project builds an offline, GPU-accelerated AI agent that uses [CodeLLama](h
 
 ## 🗂️ Folder Structure
 
-📁 DataWhisperer/  ├── sql_agent.py # Main loop: ask questions to CodeLlama  <br>
-                    ├── local_llm.py # LangChain-compatible wrapper for Mistral <br>
-                    ├── setup_db.py # Creates sample sales.db SQLite database <br>
-                    ├── sales.db # SQLite file with sample data <br>
-                    ├── .env.example # Example token/env template <br>
-                    ├── requirements.txt # Python dependencies <br>
-                    ├── .gitignore # Prevents model files & secrets from uploading <br> 
-                    └── models/ # Contains GGUF model (NOT included in repo) <br>
-                    └── codellama-7b-instruct.Q4_K_M.gguf <br>
+📁 DataWhisperer/  ├── app.py               # Streamlit frontend
+                    ├── sql_agent.py         # LLM + SQL execution logic
+                    ├── patched_chain.py     # Output-cleaning logic
+                    ├── local_llm.py         # GGUF model runner via llama-cpp
+                    ├── setup_db.py          # Sample database generator
+                    ├── test_query.py        # Test script for DB
+                    ├── sales.db             # (Auto-generated or included DB)
+                    ├── models/              # Put GGUF models here
+                    ├── .gitignore
+                    ├── requirements.txt
+                    └── README.md
 
 
 ---
